@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 
-class Level1 extends Component {
+class Level2 extends Component {
     render() {
         return (
             <div>
-
+                Level2
             </div>
         );
     }
 }
 
-export default Level1
+export default Level2

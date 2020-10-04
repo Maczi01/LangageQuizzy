@@ -6,8 +6,8 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path={} component={Level1}/>
-        <Route path={} component={Level2}/>
+        <Route exact path={"/"} component={Level1}/>
+        <Route path={"/level2"} component={Level2}/>
       </Switch>
     </BrowserRouter>
   );
