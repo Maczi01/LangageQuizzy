@@ -7,6 +7,8 @@ class Level1 extends Component {
             <div style={
                 {padding: "1rem", border: "1px solid gray", borderRadius: "5px", maxWidth: "400px", margin: '3rem auto'}
             }>
+                <h1>Game</h1>
+                <Progress percent={70} status="active"/>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                     <h2>LEVEL 1</h2>
                     <h2>1/5</h2>
@@ -23,8 +25,8 @@ class Level1 extends Component {
                     <div style={{ display: 'flex' }}>
                         <Input
                             name="value"
-                            onChange={this.handleChange}
-                            value={this.state.value}
+                            // onChange={this.handleChange}
+                            // value={this.state.value}
                             id="voca"
                             type="text"
                         />
@@ -52,6 +54,25 @@ class Level1 extends Component {
                     >
                         Click to Restart!
                     </Button>
+                </div>
+
+                <Divider />
+                <h3>Wrong! Correct answer: </h3>
+                <div>
+                    <li style={{ display: 'block' }}>
+                        <p
+                            // onClick={this.handleAudio}
+                            // data-value={level1[this.state.round - 1] ? level1[this.state.round - 1].mp3 : level1[this.state.round].mp3}
+                        >audoio
+                            {/*<AudioOutlined />   {this.state.wrongAnswer}*/}
+                        </p>
+                    </li>
+
+                    <audio id="audio" controls style={{ display: 'none' }}>
+                        <source id="audioSource"></source>
+                        Your browser does not support the audio format.
+                    </audio>
+
                 </div>
             </div>
         );
