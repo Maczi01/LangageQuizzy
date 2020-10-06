@@ -18,7 +18,7 @@ class Level1 extends Component {
                 <h2>lev1</h2>
 
                 <div style={{fontSize: '1rem'}}>
-                    Answer the voca`s <span style={{color: 'red'}}>past participle</span>
+                    Answer the voca`s <span style={{color: 'red'}}>Past participle</span>
                 </div>
 
                 <form style={{ padding: '1rem 0' }} onSubmit={this.handleSubmit}>
