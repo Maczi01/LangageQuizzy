@@ -1,7 +1,17 @@
 import React, {Component} from 'react'
 import { Input, Button, Progress, Divider } from "antd";
+import {level1} from "../data";
 
 class Level1 extends Component {
+
+    state = {
+        value: "",
+        timeOut: false,
+        round: 0,
+        timer: 10,
+        randomTense: 
+    }
+
     render() {
         return (
             <div style={
