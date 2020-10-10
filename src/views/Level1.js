@@ -9,8 +9,23 @@ class Level1 extends Component {
         timeOut: false,
         round: 0,
         timer: 10,
-        randomTense: 
+        randomTense: "",
+        wrongAnswer:"",
+        wrongAnswers:[],
     }
+
+    componentDidMount() {
+        this.randromTense();
+    }
+
+    randromTense = () =>{
+        let TenseArray = ["simple", "past"]
+        let randomTense = await TenseArray[Math.floor(Map.random() * TenseArray.length)]
+        this.setState({randomTense})
+    }
+
+
+
 
     render() {
         return (
