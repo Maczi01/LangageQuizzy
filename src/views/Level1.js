@@ -25,7 +25,7 @@ class Level1 extends Component {
         }, 10000)
 
         this.interval = setInterval(() => {
-            this.setState({timer: this.state.timer})
+            this.setState({timer: this.state.timer - 1})
         })
     }
 
@@ -35,6 +35,12 @@ class Level1 extends Component {
         this.setState({randomTense})
     }
 
+
+    componentDidUpdate() {
+        if (this.state.timer === 0) {
+            clearInterval(this.interval)
+        }
+    }
 
     render() {
         return (
