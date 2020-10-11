@@ -42,6 +42,12 @@ class Level1 extends Component {
         }
     }
 
+
+    componentWillUnmount() {
+        clearTimeout(this.timeout)
+        clearInterval(this.interval)
+    }
+
     render() {
         return (
             <div style={
