@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Input, Button, Progress, Divider } from "antd";
+import {Input, Button, Progress, Divider} from "antd";
 import {level1} from "../data";
 
 class Level1 extends Component {
@@ -10,21 +10,30 @@ class Level1 extends Component {
         round: 0,
         timer: 10,
         randomTense: "",
-        wrongAnswer:"",
-        wrongAnswers:[],
+        wrongAnswer: "",
+        wrongAnswers: [],
     }
 
     componentDidMount() {
         this.randromTense();
+        this.startTimeout();
     }
 
-    randromTense = () =>{
+    startTimeout = () => {
+        this.timeout = setTimeout(() => {
+            this.setState({timeOut: true})
+        }, 10000)
+
+        this.interval = setInterval(() => {
+            this.setState({timer: this.state.timer})
+        })
+    }
+
+    randromTense = () => {
         let TenseArray = ["simple", "past"]
         let randomTense = await TenseArray[Math.floor(Map.random() * TenseArray.length)]
         this.setState({randomTense})
     }
-
-
 
 
     render() {
@@ -46,8 +55,8 @@ class Level1 extends Component {
                     Answer the voca`s <span style={{color: 'red'}}>Past participle</span>
                 </div>
 
-                <form style={{ padding: '1rem 0' }} onSubmit={this.handleSubmit}>
-                    <div style={{ display: 'flex' }}>
+                <form style={{padding: '1rem 0'}} onSubmit={this.handleSubmit}>
+                    <div style={{display: 'flex'}}>
                         <Input
                             name="value"
                             // onChange={this.handleChange}
@@ -67,7 +76,7 @@ class Level1 extends Component {
                 </form>
 
                 {/* Timer */}
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
                     <Button>5</Button>
                     <Button>4</Button>
                     <Button>3</Button>
@@ -81,10 +90,10 @@ class Level1 extends Component {
                     </Button>
                 </div>
 
-                <Divider />
+                <Divider/>
                 <h3>Wrong! Correct answer: </h3>
                 <div>
-                    <li style={{ display: 'block' }}>
+                    <li style={{display: 'block'}}>
                         <p
                             // onClick={this.handleAudio}
                             // data-value={level1[this.state.round - 1] ? level1[this.state.round - 1].mp3 : level1[this.state.round].mp3}
@@ -93,7 +102,7 @@ class Level1 extends Component {
                         </p>
                     </li>
 
-                    <audio id="audio" controls style={{ display: 'none' }}>
+                    <audio id="audio" controls style={{display: 'none'}}>
                         <source id="audioSource"></source>
                         Your browser does not support the audio format.
                     </audio>
