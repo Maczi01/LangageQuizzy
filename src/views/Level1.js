@@ -15,8 +15,9 @@ class Level1 extends Component {
     }
 
     componentDidMount() {
-        this.randromTense();
         this.startTimeout();
+        console.log("jest")
+        // this.randomTense();
     }
 
     startTimeout = () => {
@@ -24,17 +25,18 @@ class Level1 extends Component {
             this.setState({timeOut: true})
         }, 10000)
 
+
         this.interval = setInterval(() => {
             this.setState({timer: this.state.timer - 1})
-        })
+            console.log(this.state.timer)
+        }, 1000)
     }
 
-    randromTense = async () => {
+    randomTense = async () => {
         let TenseArray = ["simple", "past"]
         let randomTense = await TenseArray[Math.floor(Math.random() * TenseArray.length)]
         this.setState({randomTense})
     }
-
 
     componentDidUpdate() {
         if (this.state.timer === 0) {
@@ -48,7 +50,13 @@ class Level1 extends Component {
     }
 
     handleRestart = () => {
+        this.setState({
+            timer: 10,
+            timeOut: false,
+            wrongAnswer: ""
+        })
 
+        this.startTimeout()
     }
 
     render() {
@@ -92,11 +100,11 @@ class Level1 extends Component {
 
                 {/* Timer */}
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                    <Button>5</Button>
-                    <Button>4</Button>
-                    <Button>3</Button>
-                    <Button>2</Button>
-                    <Button>1</Button>
+                    <Button className={`${this.state.timer <= 8 && 'disabled'}`}>5</Button>
+                    <Button className={`${this.state.timer <= 6 && 'disabled'}`}>4</Button>
+                    <Button className={`${this.state.timer <= 4 && 'disabled'}`}>3</Button>
+                    <Button className={`${this.state.timer <= 2 && 'disabled'}`}>2</Button>
+                    <Button className={`${this.state.timer <= 0 && 'disabled'}`}>1</Button>
                     <Button
                         onClick={this.handleRestart}
                         // onClick={this.handleRestart}
