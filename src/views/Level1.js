@@ -29,9 +29,9 @@ class Level1 extends Component {
         })
     }
 
-    randromTense = () => {
+    randromTense = async () => {
         let TenseArray = ["simple", "past"]
-        let randomTense = await TenseArray[Math.floor(Map.random() * TenseArray.length)]
+        let randomTense = await TenseArray[Math.floor(Math.random() * TenseArray.length)]
         this.setState({randomTense})
     }
 
@@ -42,10 +42,13 @@ class Level1 extends Component {
         }
     }
 
-
     componentWillUnmount() {
         clearTimeout(this.timeout)
         clearInterval(this.interval)
+    }
+
+    handleRestart = () => {
+
     }
 
     render() {
@@ -95,6 +98,7 @@ class Level1 extends Component {
                     <Button>2</Button>
                     <Button>1</Button>
                     <Button
+                        onClick={this.handleRestart}
                         // onClick={this.handleRestart}
                         // style={{ display: this.state.timeOut ? 'block' : 'none' }}
                     >
