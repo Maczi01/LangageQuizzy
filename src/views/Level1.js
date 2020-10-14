@@ -108,7 +108,7 @@ class Level1 extends Component {
                     <Button
                         onClick={this.handleRestart}
                         // onClick={this.handleRestart}
-                        // style={{ display: this.state.timeOut ? 'block' : 'none' }}
+                        style={{ display: this.state.timeOut ? 'block' : 'none' }}
                     >
                         Click to Restart!
                     </Button>
