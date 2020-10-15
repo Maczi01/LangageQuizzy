@@ -100,15 +100,17 @@ class Level1 extends Component {
 
                 {/* Timer */}
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <p>{this.state.timer}</p>
                     <Button className={`${this.state.timer <= 8 && 'disabled'}`}>5</Button>
-                    <Button className={`${this.state.timer <= 6 && 'disabled'}`}>4</Button>
-                    <Button className={`${this.state.timer <= 4 && 'disabled'}`}>3</Button>
-                    <Button className={`${this.state.timer <= 2 && 'disabled'}`}>2</Button>
-                    <Button className={`${this.state.timer <= 0 && 'disabled'}`}>1</Button>
+                    {/*// <Button className={`${this.state.timer <= 8 && !disabled'}`}>5</Button>*/}
+                    {/*// <Button className={`${this.state.timer <= 6 && 'disabled'}`}>4</Button>*/}
+                    {/*// <Button className={`${this.state.timer <= 4 && 'disabled'}`}>3</Button>*/}
+                    {/*// <Button className={`${this.state.timer <= 2 && 'disabled'}`}>2</Button>*/}
+                    {/*// <Button className={`${this.state.timer <= 0 && 'disabled'}`}>1</Button>*/}
                     <Button
                         onClick={this.handleRestart}
                         // onClick={this.handleRestart}
-                        style={{ display: this.state.timeOut ? 'block' : 'none' }}
+                        // style={{ display: this.state.timeOut ? 'block' : 'none' }}
                     >
                         Click to Restart!
                     </Button>
