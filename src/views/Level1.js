@@ -65,7 +65,7 @@ class Level1 extends Component {
                 {padding: "1rem", border: "1px solid gray", borderRadius: "5px", maxWidth: "400px", margin: '3rem auto'}
             }>
                 <h1>Game</h1>
-                <Progress percent={70} status="active"/>
+                <Progress percent={50} status="active"/>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                     <h2>LEVEL 1</h2>
                     <h2>1/5</h2>
@@ -101,8 +101,8 @@ class Level1 extends Component {
                 {/* Timer */}
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                     <p>{this.state.timer}</p>
-                    <Button className={`${this.state.timer <= 8 && 'disabled'}`}>5</Button>
-                    {/*// <Button className={`${this.state.timer <= 8 && !disabled'}`}>5</Button>*/}
+                    <Progress percent={(`${this.state.timer}`*10)} status="active"/>
+                    {/*// <Button className={`${this.state.timer <= 8 && 'disabled'}`}>5</Button>*/}
                     {/*// <Button className={`${this.state.timer <= 6 && 'disabled'}`}>4</Button>*/}
                     {/*// <Button className={`${this.state.timer <= 4 && 'disabled'}`}>3</Button>*/}
                     {/*// <Button className={`${this.state.timer <= 2 && 'disabled'}`}>2</Button>*/}
