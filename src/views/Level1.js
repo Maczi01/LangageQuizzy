@@ -59,6 +59,27 @@ class Level1 extends Component {
         this.startTimeout()
     }
 
+    handleChange = (event) => {
+        this.setState({value: event.target.value})
+    };
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+
+        if (this.state.timeOut) {
+            alert("Please click restart")
+        }
+        if (!this.state.value.trim()) {
+            alert("Put something...")
+        }
+        this.setState({value: "", wrongAnswear: ""})
+        this.checkAnswer()
+    }
+
+    checkAnswer = () => {
+
+    }
+
     render() {
         return (
             <div style={
@@ -82,8 +103,8 @@ class Level1 extends Component {
                     <div style={{display: 'flex'}}>
                         <Input
                             name="value"
-                            // onChange={this.handleChange}
-                            // value={this.state.value}
+                            onChange={this.handleChange}
+                            value={this.state.value}
                             id="voca"
                             type="text"
                         />
@@ -100,7 +121,7 @@ class Level1 extends Component {
 
                 {/* Timer */}
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                    <Progress percent={(`${this.state.timer}`*10)} status="exception" showInfo={false}/>
+                    <Progress percent={(`${this.state.timer}` * 10)} status="exception" showInfo={false}/>
 
                 </div>
                 <Divider/>
