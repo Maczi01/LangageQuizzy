@@ -77,7 +77,7 @@ class Level1 extends Component {
     }
 
     checkAnswer = () => {
-
+        this.state.randomTense
     }
 
     render() {
