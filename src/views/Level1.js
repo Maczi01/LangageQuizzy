@@ -77,17 +77,33 @@ class Level1 extends Component {
     }
 
     checkAnswer = () => {
-        (this.state.randomTense === 'simple' ? level[this.state.round].simple : level1[this.state.round].past)
-        ===this.state.value ?
+        (this.state.randomTense === 'simple' ? level1[this.state.round].simple : level1[this.state.round].past)
+        === this.state.value ?
 
             this.setState({round: this.state.round + 1, timer: 10, wringAnswer: ""}, () => {
                 clearInterval(this.timeout)
                 this.timeout = setTimeout(() => {
-                     this.setState({timeOut: true})
+                    this.setState({timeOut: true}, 10000)
                 })
             })
             :
-
+            this.setState({
+                    wrongAnswer: this.state.randomTense === 'simple' ? `${level1[this.state.round].simple}`
+                        : `${level1[this.state.round].past}`
+                }, () => {
+                    this.setState({
+                        round: this.state.round + 1,
+                        timer: 10,
+                        wrongAnswers: this.state.wrongAnswers.concat(level1[this.state.round].voca)
+                    })
+                    this.randomTense(),
+                    clearTimeout(this.timeout)
+                    this.timeout = setTimeout(() => {
+                        this.setState({timeOut: true})
+                    }, 10000)
+                )
+                }
+            )
     }
 
     render() {
