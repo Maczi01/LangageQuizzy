@@ -96,12 +96,12 @@ class Level1 extends Component {
                         timer: 10,
                         wrongAnswers: this.state.wrongAnswers.concat(level1[this.state.round].voca)
                     })
-                    this.randomTense(),
+                    this.randomTense()
                     clearTimeout(this.timeout)
                     this.timeout = setTimeout(() => {
                         this.setState({timeOut: true})
                     }, 10000)
-                )
+
                 }
             )
     }
@@ -109,7 +109,7 @@ class Level1 extends Component {
     render() {
         return (
             <div style={
-                {padding: "1rem", border: "1px solid gray", borderRadius: "5px", maxWidth: "400px", margin: '3rem auto'}
+                {padding: "1rem", border: "1px solid gray", borderRadius: "4px", maxWidth: "400px", margin: '3rem auto'}
             }>
                 <h1>Game</h1>
                 <Progress percent={50} status="active"/>
@@ -118,11 +118,14 @@ class Level1 extends Component {
                     <h2>1/5</h2>
                 </div>
                 Level1
-                <span style={{marginBottom: 0, color: 'grey'}}>Infinitive</span>
-                <h2>lev1</h2>
+
+                <span style={{ marginBottom: 0, color: 'grey' }}>Infinitive</span>
+                <h2>{level1[this.state.round].voca}</h2>
 
                 <div style={{fontSize: '1rem'}}>
                     Answer the voca`s <span style={{color: 'red'}}>Past participle</span>
+                    {this.state.randomTense === 'simple' ? 'simple past' : 'past participle'}
+
                 </div>
 
                 <form style={{padding: '1rem 0'}} onSubmit={this.handleSubmit}>
