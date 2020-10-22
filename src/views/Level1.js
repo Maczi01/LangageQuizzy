@@ -123,7 +123,7 @@ class Level1 extends Component {
                 <h2>{level1[this.state.round].voca}</h2>
 
                 <div style={{fontSize: '1rem'}}>
-                    Answer the voca`s <span style={{color: 'red'}}>Past participle</span>
+                    Answer the voca <span style={{color: 'red'}}>Past participle</span>
                     {this.state.randomTense === 'simple' ? 'simple past' : 'past participle'}
 
                 </div>
